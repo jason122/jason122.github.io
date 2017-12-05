@@ -4,3 +4,10 @@ body {
     color: #ffffff;
     font-family: monospace;
 }
+iframe.hidden {
+    display: none;
+    height: 0;
+    width: 0;
+    tabindex: -1;
+    
+}
