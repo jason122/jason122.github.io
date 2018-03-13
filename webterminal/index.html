@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+<script
+  src="https://code.jquery.com/jquery-1.7.1.min.js"
+  integrity="sha256-iBcUE/x23aI6syuqF7EeT/+JFBxjPs5zeFJEXxumwb0="
+  crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jq-console/2.7.7/jqconsole.min.js"></script>
+ <style>    /* The console container element */
+    #console {
+      position: absolute;
+      width: 400px;
+      height: 500px;
+      background-color:black;
+    }
+    /* The inner console element. */
+    .jqconsole {
+        padding: 10px;
+    }
+    /* The cursor. */
+    .jqconsole-cursor {
+        background-color: gray;
+    }
+    /* The cursor color when the console looses focus. */
+    .jqconsole-blurred .jqconsole-cursor {
+        background-color: #666;
+    }
+    /* The current prompt text color */
+    .jqconsole-prompt {
+        color: #0d0;
+    }
+    /* The command history */
+    .jqconsole-old-prompt {
+        color: #0b0;
+        font-weight: normal;
+    }
+    /* The text color when in input mode. */
+    .jqconsole-input {
+        color: #dd0;
+    }
+    /* Previously entered input. */
+    .jqconsole-old-input {
+        color: #bb0;
+        font-weight: normal;
+    }
+    /* The text color of the output. */
+    .jqconsole-output {
+        color: white;
+    }
+   
+  </style>
+</head>
+<body>
+ <div id="console"></div>
+     <script>
+ 
+      $(function () {
+        var jqconsole = $('#console').jqconsole('Hi\n', '>>>');
+        jqconsole.Write('Welcome to jq-console. Orellabac Demo\r\n. This demo just repeats input\r\n','jqconsole-output');
+        var startPrompt = function () {
+          // Start the prompt with history enabled.
+          jqconsole.Prompt(true, function (input) {
+            // Output input with the class jqconsole-output.
+            if (input == 'Hello') {
+              jqconsole.Write("Hi!\n", 'jqconsole-output');
+            }
+            else if (input == 'get-content netneutrality.txt') {
+                jqconsole.Write("Your government has stripped from you the right \nto freely access information and data.\n They have restricted your cyberspace to the most\n mind-numbing depths of the propoganda machine.\nThey have forced you to pay for basic human rights like knowledge\n and worthwhile education, and finally, they've stolen your rights to privacy and sold\n your data to the rich ISPs and large corporations.\n It's time you strike back. If you _really_ want to make\n a difference, you know what to do. Get to reading.\n", 'jqconsole-output');
+            }
+            else {
+              jqconsole.Write("Command '" + input + "' not understood.\n", 'jqconsole-output');
+            }
+            // Restart the prompt.
+            startPrompt();
+          });
+        };
+        startPrompt();
+      });
+    </script>
+</body>
+</html>
