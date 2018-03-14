@@ -9,6 +9,8 @@
   integrity="sha256-iBcUE/x23aI6syuqF7EeT/+JFBxjPs5zeFJEXxumwb0="
   crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jq-console/2.7.7/jqconsole.min.js"></script>
+  <script src="https://w.soundcloud.com/player/api.js"></script>
+  <iframe id='sc-widget' class="hidden" tabindex="-1" width="0" height="0" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/390926429&amp;color=%23242424&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true"></iframe>
  <style>    /* The console container element */
     #console {
       position: absolute;
@@ -56,33 +58,18 @@
 <body>
  <div id="console"></div>
      <script>
-     
-    function setIframeHeight(id) {
-    
-        var ifrm = document.getElementById(id);
-    
-        var doc = ifrm.contentDocument? ifrm.contentDocument: 
-    
-        ifrm.contentWindow.document;
-    
-        ifrm.style.visibility = 'hidden';
-    
-        ifrm.style.height = "100%px"; // reset to minimal height ...
-        ifrm.style.width = "100%px";
-    
-        // IE opt. for bing/msn needs a bit added or scrollbar appears
-    
-        ifrm.style.height = getDocHeight( doc ) + 4 + "px";
-    
-        ifrm.style.visibility = 'visible';
-    }
-     
-     
  
       $(function () {
         var jqconsole = $('#console').jqconsole('Hi\n', '>>>');
         jqconsole.Write('Welcome to jq-console. Orellabac Demo\r\n. This demo just repeats input\r\n','jqconsole-output');
+        
+        var noise = 100;
+        
+        var widgetIframe = document.getElementById('sc-widget'),
+        widget       = SC.Widget(widgetIframe);
+        
         var startPrompt = function () {
+          widget.setVolume(noise);
           // Start the prompt with history enabled.
           jqconsole.Prompt(true, function (input) {
             // Output input with the class jqconsole-output.
@@ -96,9 +83,28 @@
                 jqconsole.Write("Your government has stripped from you the right \nto freely access information and data.\n They have restricted your cyberspace to the most\n mind-numbing depths of the propoganda machine.\nThey have forced you to pay for basic human rights like knowledge\n and worthwhile education, and finally, they've stolen your rights to privacy and sold\n your data to the rich ISPs and large corporations.\n It's time you strike back. If you _really_ want to make\n a difference, you know what to do. Get to reading.\n", 'jqconsole-output');
             }
             else if (input == 'help' | input == '?') {
-                jqconsole.Write("get-content    gets the content of a file, use '.' to \n    request the content of the current directory.\nHello          says hello to the computer.\nhelp           displays this page.\n", 'jqconsole-output')
+                jqconsole.Write("get-content    gets the content of a file, use '.' to \n               request the content of the current directory.\nHello          says hello to the computer.\nhelp           displays this page.\nscp            toggle music\n", 'jqconsole-output')
             }
             else if (input == '') {
+            }
+            else if (input == 'scp') {
+                widget.toggle();
+            }
+            else if (input == 'quiet') {
+                noise -=10;
+                widget.setVolume(noise);
+            }
+            else if (input == 'quieter') {
+                noise-=20;
+                widget.setVolume(noise);
+            }
+            else if (input == 'loud') {
+                noise += 10;
+                widget.setVolume(noise);
+            }
+            else if (input == 'louder') {
+                noise += 20;
+                widget.setVolume(noise);
             }
             else {
               jqconsole.Write("Command '" + input + "' not understood.\n", 'jqconsole-output');
