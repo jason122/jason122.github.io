@@ -12,8 +12,8 @@
  <style>    /* The console container element */
     #console {
       position: absolute;
-      width: 400px;
-      height: 500px;
+      width: 800px;
+      height: 800px;
       background-color:black;
     }
     /* The inner console element. */
@@ -56,6 +56,28 @@
 <body>
  <div id="console"></div>
      <script>
+     
+    function setIframeHeight(id) {
+    
+        var ifrm = document.getElementById(id);
+    
+        var doc = ifrm.contentDocument? ifrm.contentDocument: 
+    
+        ifrm.contentWindow.document;
+    
+        ifrm.style.visibility = 'hidden';
+    
+        ifrm.style.height = "100%px"; // reset to minimal height ...
+        ifrm.style.width = "100%px";
+    
+        // IE opt. for bing/msn needs a bit added or scrollbar appears
+    
+        ifrm.style.height = getDocHeight( doc ) + 4 + "px";
+    
+        ifrm.style.visibility = 'visible';
+    }
+     
+     
  
       $(function () {
         var jqconsole = $('#console').jqconsole('Hi\n', '>>>');
@@ -67,8 +89,14 @@
             if (input == 'Hello') {
               jqconsole.Write("Hi!\n", 'jqconsole-output');
             }
-            else if (input == 'get-content netneutrality.txt') {
+            else if (input == 'get-content .') {
+                jqconsole.Write("rwx---r--        net-neutrality.txt\n", 'jqconsole-output')
+            }
+            else if (input == 'get-content net-neutrality.txt') {
                 jqconsole.Write("Your government has stripped from you the right \nto freely access information and data.\n They have restricted your cyberspace to the most\n mind-numbing depths of the propoganda machine.\nThey have forced you to pay for basic human rights like knowledge\n and worthwhile education, and finally, they've stolen your rights to privacy and sold\n your data to the rich ISPs and large corporations.\n It's time you strike back. If you _really_ want to make\n a difference, you know what to do. Get to reading.\n", 'jqconsole-output');
+            }
+            else if (input == 'help' | input == '?') {
+                jqconsole.Write("get-content    gets the content of a file, use '.' to \n    request the content of the current directory.\nHello    says hello to the computer.\nhelp    displays this page.\n")
             }
             else {
               jqconsole.Write("Command '" + input + "' not understood.\n", 'jqconsole-output');
