@@ -60,7 +60,7 @@ $(function () {
         else {
             jqconsole.Write("Command '" + input + "' not understood.\n", 'jqconsole-output');
         }
-        // Restart the prompt.
+        // Restart the prompt. (random insertion here)
         startPrompt();
         });
     };
