@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
         <title>Political PowerShell</title>
         <link rel="stylesheet" href="styles.css"/>
+        <script 
+            src="https://code.jquery.com/jquery-1.7.1.min.js"
+            integrity="sha256-iBcUE/x23aI6syuqF7EeT/+JFBxjPs5zeFJEXxumwb0="
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jq-console/2.7.7/jqconsole.min.js"></script>
+        <script src="https://w.soundcloud.com/player/api.js"></script>
+        <script src="main.js"></script>
+        <iframe id='sc-widget' class="hidden" tabindex="-1" width="0" height="0" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/390926429&amp;color=%23242424&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true"></iframe>
     </head>
     <body>
-        <p>Political PowerShell</p>
-        <p>Copyright (C) 7777 Liberation LLC. All rights legitimized.</p>
-        <p>PS C:\Home\Liberation> Get-Content C:\Praxis\Net-Neutrality.txt</p>
-        <p>Your government has stripped from you the right to freely access information and data. They have restricted your cyberspace to the most mind-numbing depths of the propoganda machine. They have forced you to pay for basic human rights like knowledge and worthwhile education, and finally, they've stolen your rights to privacy and sold your data to the rich ISPs and large corporations. It's time you strike back. If you _really_ want to make a difference, you know what to do. Get to reading.</p>
-        <p> PS C:\Home\Liberation> Play hacker_music@soundcloud</p>
-        <p>Loading soundcloud...</p>
-        <iframe class="hidden" tabindex="-1" width="0" height="0" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/390926429&amp;color=%23242424&amp;auto_play=true&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true"></iframe>
-        </body>
+        <div id="console"></div>
+    </body>
 </html>
