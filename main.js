@@ -25,7 +25,7 @@ $(function () {
             jqconsole.Write("Your government has stripped from you the right \nto freely access information and data.\n They have restricted your cyberspace to the most\n mind-numbing depths of the propoganda machine.\nThey have forced you to pay for basic human rights like knowledge\n and worthwhile education, and finally, they've stolen your rights to privacy and sold\n your data to the rich ISPs and large corporations.\n It's time you strike back. If you _really_ want to make\n a difference, you know what to do. Get to reading.\n", 'jqconsole-output');
         }
         else if (input == 'help' | input == '?') {
-            jqconsole.Write("get-content         gets the content of a file, use '.' to \n                    request the content of the current directory.\nHello               says hello to the computer.\nhelp                displays this page.\nscp                 toggle music\nloud (or louder)    increases volume\nquiet (or quieter)  decreases volume\nscnx                skips to next song\nscpr                skips to previous song", 'jqconsole-output')
+            jqconsole.Write("get-content         gets the content of a file, use '.' to \n                    request the content of the current directory.\nHello               says hello to the computer.\nhelp                displays this page.\nscp                 toggle music\nloud (or louder)    increases volume\nquiet (or quieter)  decreases volume\nscnx                skips to next song\nscpr                skips to previous song\n", 'jqconsole-output')
         }
         else if (input == '') {
         }
