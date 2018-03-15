@@ -2,7 +2,7 @@ $(function () {
     
     var prompt = 'A:/Home/>';
     var jqconsole = $('#console').jqconsole('', prompt);
-    jqconsole.Write('Political PowerShell\nCopyright (C) 7777 Liberation LLC. All rights legitimized.\n','jqconsole-output');
+    jqconsole.Write('Political PowerShell\nCopyright (C) 7777 Liberation LLC. All rights legitimized.\nUse "help" to get started.\n','jqconsole-output');
     
     var noise = 100;
     
@@ -49,7 +49,7 @@ $(function () {
             widget.setVolume(noise);
         }
         else if (input == 'get-content') {
-            jqconsole.Write("Error: No file specified.", 'jqconsole-output')
+            jqconsole.Write("Error: No file specified.\n", 'jqconsole-output')
         }
         else if (input == 'scnx') {
             widget.next();
